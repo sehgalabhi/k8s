@@ -1,0 +1,14 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: k8s-demo-app-config-test
+data:
+  application.yaml: |-
+    spring:
+      profiles: test
+    welcome:
+      message: api-configmap-base-test
+
+    bean:
+      message: scheduled-configmap-base-test
+      signal: signal-base-test

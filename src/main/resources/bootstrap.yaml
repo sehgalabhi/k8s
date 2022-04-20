@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: k8s-demo-app
+
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+      config:
+        name: k8s-demo-app-config
+        paths: /etc/configs
+      secrets:
+        paths: /etc/secrets
+#        fail-fast: true
