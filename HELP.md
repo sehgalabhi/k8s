@@ -36,7 +36,7 @@ mvn spring-boot:build-image -DskipTests
 k apply -f k8s/
 kubectl port-forward service/k8s-demo-app 8080:80
 
-
+--configmap profiles
 kubectl create secret generic mysecrets-dev --from-literal=bean.testpassword1=password1-dev --from-literal=bean.testpassword2=password2-dev
 kubectl create secret generic mysecrets-test --from-literal=bean.testpassword1=password1-test --from-literal=bean.testpassword2=password2-test
 kubectl create secret generic mysecrets-prod --from-literal=bean.testpassword1=password1-prod --from-literal=bean.testpassword2=password2-prod
@@ -44,6 +44,16 @@ kubectl create secret generic mysecrets-prod --from-literal=bean.testpassword1=p
 
 kubectl delete secret mysecrets-prod --ignore-not-found
 kubectl create secret generic mysecrets-prod --from-literal=bean.testPassword1=password1-prod-changed --from-literal=chrbean.testPassword2=password2-prod-changed
+
+
+--configmap-mount
+kubectl create secret generic mysecrets-mount --from-literal=bean.testpassword1=password1-mount --from-literal=bean.testpassword2=password2-mount
+
+kubectl delete secret mysecrets-mount --ignore-not-found
+kubectl create secret generic mysecrets-mount --from-literal=bean.testPassword1=password1-mount-changed --from-literal=bean.testPassword2=password2-mount-changed
+
+----
+
 
 k exec k8s-demo-app-55989d7d58-6g5gv  -it sh
 

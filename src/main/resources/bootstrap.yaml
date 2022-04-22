@@ -5,7 +5,7 @@ spring:
   cloud:
     kubernetes:
       config:
-        name: k8s-demo-app-config
-
+        enableApi: false
+        paths: /etc/configs/application.yaml
       secrets:
         paths: /etc/secrets

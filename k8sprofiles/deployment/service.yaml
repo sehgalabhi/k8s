@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: k8s-demo-app-mount
-  name: k8s-demo-app-mount
+    app: k8s-demo-app
+  name: k8s-demo-app
 spec:
   ports:
   - name: 80-8080
@@ -11,7 +11,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: k8s-demo-app-mount
+    app: k8s-demo-app-prod
   type: ClusterIP
 status:
   loadBalancer: {}

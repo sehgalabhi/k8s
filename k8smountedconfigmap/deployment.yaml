@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: k8s-demo-app-dev
-  name: k8s-demo-app-dev
+    app: k8s-demo-app-mount
+  name: k8s-demo-app-mount
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: k8s-demo-app-dev
+      app: k8s-demo-app-mount
   strategy: {}
   template:
     metadata:
       labels:
-        app: k8s-demo-app-dev
+        app: k8s-demo-app-mount
     spec:
       containers:
       - image: k8s-demo-app:0.0.1-SNAPSHOT
-        name: k8s-demo-app-dev
+        name: k8s-demo-app-mount
         volumeMounts:
           - name: my-secrets
             mountPath: /etc/secrets
@@ -28,12 +28,10 @@ spec:
       volumes:
         - name: my-secrets
           secret:
-            secretName: mysecrets
+            secretName: mysecrets-mount
             optional: false
         - name: my-configmap
           configMap:
-            name: k8s-demo-app-config
+            name: k8s-demo-app-config-mount
             optional: false
-        envFrom:
-          - configMapRef:
-              name: literal-configmap
+
