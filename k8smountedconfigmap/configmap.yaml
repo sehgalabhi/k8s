@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: k8s-demo-app-config
+data:
+  application.yaml: |-
+    bean:
+      message: scheduled-mount
+      signal: signal-mount

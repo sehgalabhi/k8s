@@ -37,9 +37,14 @@ k apply -f k8s/
 kubectl port-forward service/k8s-demo-app 8080:80
 
 
-kubectl create secret generic mysecrets --from-literal=bean.testpassword1=password1 --from-literal=bean.testpassword2=password2
+kubectl create secret generic mysecrets-dev --from-literal=bean.testpassword1=password1-dev --from-literal=bean.testpassword2=password2-dev
+kubectl create secret generic mysecrets-test --from-literal=bean.testpassword1=password1-test --from-literal=bean.testpassword2=password2-test
+kubectl create secret generic mysecrets-prod --from-literal=bean.testpassword1=password1-prod --from-literal=bean.testpassword2=password2-prod
 
-kubectl delete secret mysecrets --ignore-not-found
-kubectl create secret generic mysecrets --from-literal=bean.testPassword1=password12 --from-literal=bean.testPassword2=password22
+
+kubectl delete secret mysecrets-prod --ignore-not-found
+kubectl create secret generic mysecrets-prod --from-literal=bean.testPassword1=password1-prod-changed --from-literal=chrbean.testPassword2=password2-prod-changed
 
 k exec k8s-demo-app-55989d7d58-6g5gv  -it sh
+
+k exec deployment.apps/k8s-demo-app -it sh

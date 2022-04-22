@@ -2,28 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: k8s-demo-app
-  name: k8s-demo-app
+    app: k8s-demo-app-dev
+  name: k8s-demo-app-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: k8s-demo-app
+      app: k8s-demo-app-dev
   strategy: {}
   template:
     metadata:
       labels:
-        app: k8s-demo-app
+        app: k8s-demo-app-dev
     spec:
       containers:
       - image: k8s-demo-app:0.0.1-SNAPSHOT
-        name: k8s-demo-app
+        name: k8s-demo-app-dev
         volumeMounts:
           - name: my-secrets
-            mountPath: "/etc/secrets"
+            mountPath: /etc/secrets
             readOnly: true
           - name: my-configmap
-            mountPath: "/etc/configs"
+            mountPath: /etc/configs
             readOnly: true
       volumes:
         - name: my-secrets
@@ -34,12 +34,6 @@ spec:
           configMap:
             name: k8s-demo-app-config
             optional: false
-#        envFrom:
-#          - configMapRef:
-#              name: literal-configmap
-
-#        env:
-#          - name: SPRING_PROFILES_ACTIVE
-#            value: "test"
-#        resources: {}
-status: {}
+        envFrom:
+          - configMapRef:
+              name: literal-configmap
