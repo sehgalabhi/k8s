@@ -20,4 +20,5 @@ management:
 
 logging:
   level:
-    org.springframework.cloud.bootstrap: DEBUG
+    org.springframework.cloud.bootstrap.config: TRACE
+    org.springframework.cloud.kubernetes: TRACE

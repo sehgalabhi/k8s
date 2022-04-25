@@ -4,9 +4,6 @@ metadata:
   name: k8s-demo-app-config-test
 data:
   application.yaml: |-
-    spring:
-      profiles: test
-
     bean:
       message: scheduled-message-test
       signal: signal-test

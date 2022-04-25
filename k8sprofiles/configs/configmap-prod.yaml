@@ -4,9 +4,6 @@ metadata:
   name: k8s-demo-app-config-prod
 data:
   application.yaml: |-
-    spring:
-      profiles: prod
-
     bean:
       message: scheduled-message-prod
       signal: signal-prod
