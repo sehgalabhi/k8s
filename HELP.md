@@ -48,3 +48,20 @@ kubectl create secret generic mysecrets-prod --from-literal=bean.testPassword1=p
 k exec k8s-demo-app-55989d7d58-6g5gv  -it sh
 
 k exec deployment.apps/k8s-demo-app -it sh
+
+
+kubectl delete -f k8sprofiles/configs
+kubectl delete -f k8sprofiles/deployment
+
+
+kubectl apply -f k8sprofiles/configs
+kubectl apply -f k8sprofiles/deployment
+
+
+
+kubectl delete -f k8smountedconfigmap/configs
+kubectl delete -f k8smountedconfigmap/deployment
+
+
+kubectl apply -f k8smountedconfigmap/configs
+kubectl apply -f k8smountedconfigmap/deployment
