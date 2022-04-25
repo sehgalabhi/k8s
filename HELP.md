@@ -58,3 +58,11 @@ kubectl create secret generic mysecrets-mount --from-literal=bean.testPassword1=
 k exec k8s-demo-app-55989d7d58-6g5gv  -it sh
 
 k exec deployment.apps/k8s-demo-app -it sh
+
+
+kubectl delete -f k8smountedconfigmap/
+
+
+kubectl apply -f k8smountedconfigmap/
+
+
