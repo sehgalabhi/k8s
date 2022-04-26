@@ -7,3 +7,6 @@ data:
     bean:
       message: scheduled-message-test
       signal: signal-test
+
+    value:
+      message: this is value annotation test

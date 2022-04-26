@@ -7,3 +7,6 @@ data:
     bean:
       message: scheduled-message-dev
       signal: signal-dev
+
+    value:
+      message: this is value annotation dev

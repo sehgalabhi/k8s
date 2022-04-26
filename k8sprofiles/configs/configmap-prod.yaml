@@ -7,3 +7,6 @@ data:
     bean:
       message: scheduled-message-prod
       signal: signal-prod
+
+    value:
+      message: this is value annotation prod

@@ -8,6 +8,9 @@ bean:
   testpassword1: password1local
   testpassword2: password1local
 
+value:
+  message: this is value annotation local
+
 management:
   endpoint:
     restart:

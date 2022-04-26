@@ -4,20 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "bean")
 @Getter
 @Setter
-public class MyConfig {
+@RefreshScope
+public class MyConfigRefreshScope {
 
-//    @Value("${message}")
-    private String message;
+    @Value("${value.message}")
+    private String messageFromValueAnnotation;
 
-    private String signal;
-
-    private String testpassword1;
-
-    private String testpassword2;
 }
